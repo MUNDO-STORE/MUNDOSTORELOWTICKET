@@ -149,27 +149,93 @@
             color: #ecf0f1;
         }
         
-        /* Botão de compra */
+        /* Botão de compra PRINCIPAL - Animações profissionais */
         .buy-btn {
             display: inline-block;
-            background: linear-gradient(to right, #e74c3c, #f39c12);
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 50%, #e74c3c 100%);
+            background-size: 200% 200%;
             color: white;
-            padding: 18px 45px;
-            font-size: 1.4rem;
+            padding: 20px 50px;
+            font-size: 1.5rem;
             font-weight: bold;
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5),
+                        0 0 0 2px rgba(243, 156, 18, 0.3),
+                        0 0 15px rgba(243, 156, 18, 0.5);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: pulse-glow 2s infinite, gradient-shift 3s ease infinite;
         }
         
+        /* Efeito de brilho pulsante */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5),
+                            0 0 0 2px rgba(243, 156, 18, 0.3),
+                            0 0 15px rgba(243, 156, 18, 0.5);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(231, 76, 60, 0.8),
+                            0 0 0 3px rgba(243, 156, 18, 0.5),
+                            0 0 25px rgba(243, 156, 18, 0.8);
+            }
+            100% {
+                box-shadow: 0 8px 20px rgba(231, 76, 60, 0.5),
+                            0 0 0 2px rgba(243, 156, 18, 0.3),
+                            0 0 15px rgba(243, 156, 18, 0.5);
+            }
+        }
+        
+        /* Animação do gradiente */
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Efeito hover aprimorado */
         .buy-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            animation: none;
+            box-shadow: 0 12px 30px rgba(231, 76, 60, 0.9),
+                        0 0 0 4px rgba(243, 156, 18, 0.6),
+                        0 0 35px rgba(243, 156, 18, 1);
+        }
+        
+        /* Efeito de clique */
+        .buy-btn:active {
+            transform: translateY(-2px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+        
+        /* Efeito de partículas no botão */
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .buy-btn:hover::before {
+            left: 100%;
         }
         
         .price {
@@ -177,6 +243,130 @@
             font-weight: 800;
             color: #f1c40f;
             margin: 10px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* BOTÃO SECUNDÁRIO (intermediário) - Ainda mais profissional */
+        .buy-btn-secondary {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 50%, #3498db 100%);
+            background-size: 200% 200%;
+            color: white;
+            padding: 22px 55px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6),
+                        0 0 0 3px rgba(46, 204, 113, 0.4),
+                        0 0 20px rgba(46, 204, 113, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            margin: 40px 0;
+            animation: pulse-secondary 2.5s infinite, gradient-shift-secondary 4s ease infinite;
+        }
+        
+        @keyframes pulse-secondary {
+            0% {
+                box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6),
+                            0 0 0 3px rgba(46, 204, 113, 0.4),
+                            0 0 20px rgba(46, 204, 113, 0.6);
+            }
+            50% {
+                box-shadow: 0 12px 30px rgba(52, 152, 219, 0.9),
+                            0 0 0 4px rgba(46, 204, 113, 0.7),
+                            0 0 30px rgba(46, 204, 113, 0.9);
+            }
+            100% {
+                box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6),
+                            0 0 0 3px rgba(46, 204, 113, 0.4),
+                            0 0 20px rgba(46, 204, 113, 0.6);
+            }
+        }
+        
+        @keyframes gradient-shift-secondary {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .buy-btn-secondary:hover {
+            transform: translateY(-7px) scale(1.07);
+            animation: none;
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 1),
+                        0 0 0 5px rgba(46, 204, 113, 0.8),
+                        0 0 40px rgba(46, 204, 113, 1);
+        }
+        
+        .buy-btn-secondary:active {
+            transform: translateY(-3px) scale(0.98);
+            transition: all 0.1s ease;
+        }
+        
+        .buy-btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.7s ease;
+            z-index: -1;
+        }
+        
+        .buy-btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        /* Efeito de partículas flutuantes ao redor do botão */
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #f1c40f;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-particle 4s infinite linear;
+        }
+        
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) translateX(30px) rotate(180deg);
+                opacity: 0;
+            }
         }
         
         /* Seção de nichos */
@@ -449,9 +639,14 @@
                 max-width: 100%;
             }
             
-            .buy-btn {
-                padding: 15px 35px;
-                font-size: 1.2rem;
+            .buy-btn, .buy-btn-secondary {
+                padding: 18px 40px;
+                font-size: 1.3rem;
+            }
+            
+            .buy-btn-secondary {
+                padding: 20px 45px;
+                font-size: 1.4rem;
             }
             
             .depoimentos-container {
@@ -474,6 +669,15 @@
             
             .section-title {
                 font-size: 1.6rem;
+            }
+            
+            .buy-btn, .buy-btn-secondary {
+                padding: 16px 35px;
+                font-size: 1.2rem;
+                display: block;
+                margin: 0 auto;
+                width: 90%;
+                text-align: center;
             }
         }
     </style>
@@ -616,11 +820,12 @@
             </div>
         </div>
         
-        <!-- Botão de compra intermediário -->
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="https://mundodj.erby.site/product/17677845420479197224787634787121" class="buy-btn">
-                <i class="fas fa-bolt"></i> QUERO ACESSAR OS NICHOS AGORA!
+        <!-- BOTÃO INTERMEDIÁRIO COM NOVO TEXTO E ANIMAÇÃO PROFISSIONAL -->
+        <div style="text-align: center; margin: 50px 0; position: relative;" id="secondary-button-container">
+            <a href="https://mundodj.erby.site/product/17677845420479197224787634787121" class="buy-btn-secondary" id="secondary-button">
+                <i class="fas fa-gem"></i> QUERO COMPRAR TODOS OS NICHOS R$39,90
             </a>
+            <div class="floating-particles" id="particles-container"></div>
         </div>
         
         <!-- Depoimentos -->
@@ -678,6 +883,39 @@
                 star.style.animationDelay = `${Math.random() * 5}s`;
                 
                 starsContainer.appendChild(star);
+            }
+        }
+        
+        // Criar partículas flutuantes ao redor do botão secundário
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Posição aleatória ao redor do botão
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                particle.style.left = `${left}%`;
+                particle.style.top = `${top}%`;
+                
+                // Tamanho aleatório
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Cor aleatória
+                const colors = ['#f1c40f', '#3498db', '#e74c3c', '#2ecc71'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
+                
+                // Atraso de animação aleatório
+                particle.style.animationDelay = `${Math.random() * 4}s`;
+                particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                
+                particlesContainer.appendChild(particle);
             }
         }
         
@@ -780,9 +1018,10 @@
             document.getElementById('current-year').textContent = now.getFullYear();
         }
         
-        // Rastrear clique no botão de compra com o Pixel
+        // Rastrear clique nos botões com o Pixel
         function setupPixelTracking() {
             const buyButton = document.getElementById('buy-button');
+            const secondaryButton = document.getElementById('secondary-button');
             
             buyButton.addEventListener('click', function() {
                 fbq('track', 'Purchase', {
@@ -790,21 +1029,96 @@
                     currency: 'BRL'
                 });
             });
+            
+            secondaryButton.addEventListener('click', function() {
+                fbq('track', 'Purchase', {
+                    value: 39.90,
+                    currency: 'BRL'
+                });
+                fbq('track', 'InitiateCheckout');
+            });
+        }
+        
+        // Adicionar efeitos especiais ao botão secundário
+        function enhanceSecondaryButton() {
+            const button = document.getElementById('secondary-button');
+            
+            button.addEventListener('mouseenter', function() {
+                // Criar efeito de explosão de partículas
+                const container = document.getElementById('particles-container');
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        createExplosionParticle(container);
+                    }, i * 100);
+                }
+            });
+        }
+        
+        // Criar partícula de explosão
+        function createExplosionParticle(container) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Posição central
+            particle.style.left = '50%';
+            particle.style.top = '50%';
+            
+            // Tamanho
+            particle.style.width = '8px';
+            particle.style.height = '8px';
+            
+            // Cor
+            const colors = ['#f1c40f', '#3498db', '#e74c3c', '#2ecc71'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.background = color;
+            
+            // Animação de explosão
+            particle.style.animation = 'explosion 0.8s ease-out forwards';
+            
+            // Estilos para explosão
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes explosion {
+                    0% {
+                        transform: translate(-50%, -50%) scale(1);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translate(
+                            ${Math.random() * 100 - 50}px, 
+                            ${Math.random() * 100 - 50}px
+                        ) scale(0);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            container.appendChild(particle);
+            
+            // Remover após animação
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 800);
         }
         
         // Inicializar página
         document.addEventListener('DOMContentLoaded', function() {
             initStars();
+            createParticles();
             generateDepoimentos();
             updateDate();
             setupPixelTracking();
+            enhanceSecondaryButton();
             
             // Iniciar notificações
             generateNotification();
             setInterval(generateNotification, 6000);
             
             // Adicionar efeito de clique nos botões
-            const buyButtons = document.querySelectorAll('.buy-btn');
+            const buyButtons = document.querySelectorAll('.buy-btn, .buy-btn-secondary');
             buyButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     // Efeito visual
@@ -812,9 +1126,6 @@
                     setTimeout(() => {
                         this.style.transform = '';
                     }, 200);
-                    
-                    // Rastreamento adicional
-                    fbq('track', 'InitiateCheckout');
                 });
             });
         });
