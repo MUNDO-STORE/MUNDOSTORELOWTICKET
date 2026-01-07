@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Store - Material para Revenda R$39,90</title>
+    <!-- Pixel Facebook -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '25652670291043537');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=25652670291043537&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- Fim do Pixel Facebook -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+        }
+        
+        body {
+            background-color: #0a0a1a;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Fundo animado */
+        #animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a1a, #1a1a2e, #16213e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            opacity: 0.9;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Estrelas no fundo */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        /* Banner principal */
+        .main-banner {
+            background: rgba(44, 62, 80, 0.85);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .main-banner h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .main-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ecf0f1;
+        }
+        
+        /* Botão de compra */
+        .buy-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e74c3c, #f39c12);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f1c40f;
+            margin: 10px 0;
+        }
+        
+        /* Seção de nichos */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 40px 0 30px;
+            color: #3498db;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .nichos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .nicho-card {
+            background: rgba(44, 62, 80, 0.85);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #3498db;
+        }
+        
+        .nicho-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .nicho-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #f39c12;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nicho-card h3 .nicho-number {
+            background: #e74c3c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .nicho-card ul {
+            list-style-type: none;
+            margin-left: 10px;
+        }
+        
+        .nicho-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .nicho-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .telegram-badge {
+            display: inline-block;
+            background: #0088cc;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        /* Notificações em tempo real */
+        .notifications-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            z-index: 1000;
+        }
+        
+        .notification {
+            background: rgba(44, 62, 80, 0.95);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-left: 5px solid #27ae60;
+            animation: slideIn 0.5s ease;
+            transition: all 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .notification-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .notification-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .notification-content h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #f39c12;
+        }
+        
+        .notification-content p {
+            font-size: 0.9rem;
+            color: #ecf0f1;
+        }
+        
+        .notification-location {
+            font-size: 0.8rem;
+            color: #3498db;
+            margin-top: 3px;
+        }
+        
+        /* Seção de depoimentos */
+        .depoimentos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .depoimento-card {
+            background: rgba(44, 62, 80, 0.85);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .depoimento-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .depoimento-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .depoimento-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .depoimento-info h4 {
+            font-size: 1.1rem;
+            color: #f39c12;
+        }
+        
+        .depoimento-info p {
+            font-size: 0.9rem;
+            color: #3498db;
+        }
+        
+        .depoimento-text {
+            font-style: italic;
+            color: #ecf0f1;
+            line-height: 1.5;
+        }
+        
+        .social-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .facebook-badge {
+            background: #3b5998;
+            color: white;
+        }
+        
+        .instagram-badge {
+            background: #E1306C;
+            color: white;
+        }
+        
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(52, 152, 219, 0.3);
+            margin-top: 30px;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        .date-display {
+            margin-top: 10px;
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .main-banner {
+                padding: 25px;
+            }
+            
+            .main-banner h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nichos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .notifications-container {
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .notification {
+                max-width: 100%;
+            }
+            
+            .buy-btn {
+                padding: 15px 35px;
+                font-size: 1.2rem;
+            }
+            
+            .depoimentos-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-banner {
+                padding: 20px;
+            }
+            
+            .main-banner h1 {
+                font-size: 1.5rem;
+            }
+            
+            .price {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fundo animado -->
+    <div id="animated-bg"></div>
+    <div class="stars" id="stars-container"></div>
+    
+    <!-- Notificações em tempo real -->
+    <div class="notifications-container" id="notifications-container"></div>
+    
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1 class="logo">Mundo Store</h1>
+            <p class="subtitle">Material para Revenda - <span class="highlight">Low Ticket R$39,90</span></p>
+        </header>
+        
+        <!-- Banner principal -->
+        <section class="main-banner">
+            <h1>ESTÁ PRECISANDO DE MATERIAL PARA REVENDA?</h1>
+            <p>AQUI VOCÊ ENCONTRA OS NICHOS MAIS VENDIDOS DA INTERNET!</p>
+            <div class="price">R$ 39,90</div>
+            <a href="https://mundodj.erby.site/product/17677845420479197224787634787121" class="buy-btn" id="buy-button">
+                <i class="fas fa-shopping-cart"></i> CLIQUE AQUI PARA COMPRAR
+            </a>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Acesso imediato após a confirmação do pagamento</p>
+        </section>
+        
+        <!-- Nichos -->
+        <h2 class="section-title">NICHOS DISPONÍVEIS</h2>
+        <div class="nichos-grid">
+            <!-- Nicho 1 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">1</span> NICHO DJ E ATUALIZAR PENDRIVE</h3>
+                <ul>
+                    <li>+7 TERABYTES DE MÚSICAS</li>
+                    <li>+2 TERABYTES DE EFEITOS SONOROS</li>
+                    <li>REPERTÓRIOS ATUALIZADOS</li>
+                    <li>SOFTWARES PARA DJ</li>
+                    <li>VIDEOCLIPES</li>
+                    <li>PACKS PARA ACADEMIA</li>
+                    <li>PACK PARA FESTAS (CASAMENTO, 15 ANOS, FORMATURAS, INFANTIL, NATALINAS, REVEILLON, CARNAVAL, FESTA JUNINA E MUITO MAIS!)</li>
+                </ul>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="margin-top: 10px;"><strong>ÓTIMO PARA VOCÊ COMEÇAR A MONTAR SUAS PLAYLIST E COMEÇAR A VENDER!</strong></p>
+            </div>
+            
+            <!-- Nicho 2 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">2</span> NICHO ELITE FITNESS</h3>
+                <ul>
+                    <li>MÚSICAS PARA ACADEMIA</li>
+                    <li>CROSSFIT</li>
+                    <li>IOGA</li>
+                    <li>ZUMBA</li>
+                    <li>CAPOEIRA</li>
+                </ul>
+                <p>TUDO QUE É DO MUNDO FITNESS JOGAMOS NESSE GRUPO!</p>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="margin-top: 10px;"><strong>NICHO CAMPEÃO DE VENDAS! SÓ MONTAR SUA IDÉIA E LUCRAR!</strong></p>
+            </div>
+            
+            <!-- Nicho 3 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">3</span> NICHO GOSPEL</h3>
+                <ul>
+                    <li>MÚSICAS</li>
+                    <li>PREGAÇÕES</li>
+                    <li>MÚSICAS PARA ADORAÇÃO</li>
+                    <li>VIDEOCLIPES E MUITO MAIS!</li>
+                    <li>PACK PROFISSIONAL PARA WEB RÁDIO!</li>
+                </ul>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="margin-top: 10px;"><strong>MONTE SUAS PLAYLIST E COMECE A LUCRAR!</strong></p>
+            </div>
+            
+            <!-- Nicho 4 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">4</span> NICHO JOGOS RETRO</h3>
+                <ul>
+                    <li>JOGOS RETRO PARA PC</li>
+                    <li>PACK EMULADORES PC - ANDROID - TV BOX</li>
+                    <li>JOGOS PARA PC SÓ OS RETRO</li>
+                    <li>PACK DE EMULADORES</li>
+                </ul>
+                <p>ESSE PACK É UM DOS MAIS COMPLETO DA INTERNET!</p>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="margin-top: 10px;"><strong>ÓTIMO PARA LUCRAR COM GAMES RETRO!</strong></p>
+                <p style="font-size: 0.9rem; color: #f39c12; margin-top: 10px;"><i class="fas fa-info-circle"></i> DICA: (ESSE NICHO REQUER UM POUCO DE CONHECIMENTO AVANÇADO, OS EMULADORES E OS JOGOS RETRO SÃO MODO RAIZ, OU SEJA TUDO CONFIGURADO MANUALMENTE)</p>
+            </div>
+            
+            <!-- Nicho 5 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">5</span> NICHO TÉCNICOS EM INFORMÁTICA</h3>
+                <ul>
+                    <li>SISTEMA OPERACIONAL</li>
+                    <li>OFFICE</li>
+                    <li>ATIVADOR</li>
+                    <li>E MUITO MAIS!</li>
+                </ul>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="font-size: 0.9rem; color: #f39c12; margin-top: 10px;"><i class="fas fa-info-circle"></i> DICA: (ESSE NICHO REQUER CONHECIMENTO AVANÇADO)</p>
+            </div>
+            
+            <!-- Nicho 6 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">6</span> NICHO ATIVIDADES INFANTIL</h3>
+                <ul>
+                    <li>MATERIAL PARA IMPRIMIR</li>
+                    <li>ATIVIDADES PARA CRIANÇAS COM TDAH</li>
+                    <li>MÚSICAS INFANTIL</li>
+                </ul>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+                <p style="margin-top: 10px;"><strong>NICHO MAIS PROCURADO PARA REVENDA!</strong></p>
+            </div>
+            
+            <!-- Nicho 7 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">7</span> NICHO VIDEOS NOSTALGICOS</h3>
+                <ul>
+                    <li>VIDEOS RETRO</li>
+                    <li>FAMILIA DINOSSAURO</li>
+                    <li>JASPION</li>
+                    <li>JIRAIYA</li>
+                    <li>CASTELO RÁ-TI-BUM</li>
+                    <li>STREET FIGHTER VICTORY E MUITO MAIS!</li>
+                </ul>
+                <p>NA INTERNET PESSOAL GOSTA MUITO DE NOSTALGIA, DEPENDENDO DO SEU EMPENHO CONSIGA GANHAR DINHEIRO!</p>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+            </div>
+            
+            <!-- Nicho 8 -->
+            <div class="nicho-card">
+                <h3><span class="nicho-number">8</span> NICHO (ATENÇÃO)</h3>
+                <p>TUDO QUE CONSEGUIMOS NO MUNDO LOW TICKET ADICIONAMOS NO GRUPO!</p>
+                <p><strong>MATERIAL DE REVENDA RÁPIDA! SÓ MONTAR SEUS PACKS E COMEÇAR A LUCRAR!</strong></p>
+                <div class="telegram-badge">100% HOSPEDADO NO TELEGRAM</div>
+            </div>
+        </div>
+        
+        <!-- Botão de compra intermediário -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="https://mundodj.erby.site/product/17677845420479197224787634787121" class="buy-btn">
+                <i class="fas fa-bolt"></i> QUERO ACESSAR OS NICHOS AGORA!
+            </a>
+        </div>
+        
+        <!-- Depoimentos -->
+        <h2 class="section-title">DEPOIMENTOS DE CLIENTES</h2>
+        <div class="depoimentos-container" id="depoimentos-container"></div>
+        
+        <!-- Rodapé -->
+        <footer>
+            <p>Mundo Store &copy; <span id="current-year"></span> - Todos os direitos reservados</p>
+            <p>Material para revenda low ticket - Acesso vitalício por apenas R$ 39,90</p>
+            <div class="date-display" id="current-date"></div>
+        </footer>
+    </div>
+    
+    <script>
+        // Configurações
+        const config = {
+            // Dados para notificações
+            maleNames: ["João Silva", "Pedro Santos", "Carlos Oliveira", "Antônio Costa", "Luiz Fernandes", "Ricardo Alves", "Marcos Souza", "Fernando Lima", "Roberto Pereira", "José Rodrigues"],
+            femaleNames: ["Maria Souza", "Ana Costa", "Juliana Santos", "Patrícia Lima", "Aline Oliveira", "Camila Fernandes", "Fernanda Alves", "Beatriz Rodrigues", "Letícia Pereira", "Amanda Silva"],
+            malePhotos: ["https://randomuser.me/api/portraits/men/1.jpg", "https://randomuser.me/api/portraits/men/2.jpg", "https://randomuser.me/api/portraits/men/3.jpg", "https://randomuser.me/api/portraits/men/4.jpg", "https://randomuser.me/api/portraits/men/5.jpg", "https://randomuser.me/api/portraits/men/6.jpg", "https://randomuser.me/api/portraits/men/7.jpg", "https://randomuser.me/api/portraits/men/8.jpg", "https://randomuser.me/api/portraits/men/9.jpg", "https://randomuser.me/api/portraits/men/10.jpg"],
+            femalePhotos: ["https://randomuser.me/api/portraits/women/1.jpg", "https://randomuser.me/api/portraits/women/2.jpg", "https://randomuser.me/api/portraits/women/3.jpg", "https://randomuser.me/api/portraits/women/4.jpg", "https://randomuser.me/api/portraits/women/5.jpg", "https://randomuser.me/api/portraits/women/6.jpg", "https://randomuser.me/api/portraits/women/7.jpg", "https://randomuser.me/api/portraits/women/8.jpg", "https://randomuser.me/api/portraits/women/9.jpg", "https://randomuser.me/api/portraits/women/10.jpg"],
+            states: ["SP", "RJ", "MG", "RS", "PR", "BA", "SC", "GO", "PE", "CE"],
+            
+            // Dados para depoimentos
+            depoimentos: [
+                {name: "Carlos Mendes", photo: "https://randomuser.me/api/portraits/men/32.jpg", state: "SP", text: "Comprei há uma semana e já recuperei o investimento vendendo packs de DJ. Material excelente!", social: "facebook"},
+                {name: "Amanda Santos", photo: "https://randomuser.me/api/portraits/women/44.jpg", state: "RJ", text: "O nicho de atividades infantis é incrível! Já vendi para várias escolas da minha cidade.", social: "instagram"},
+                {name: "Roberto Alves", photo: "https://randomuser.me/api/portraits/men/67.jpg", state: "MG", text: "Há meses procurava um material completo assim. Vale cada centavo, especialmente os packs de jogos retro!", social: "facebook"},
+                {name: "Fernanda Lima", photo: "https://randomuser.me/api/portraits/women/33.jpg", state: "RS", text: "Revendo os packs de música gospel e está dando super certo! Clientes satisfeitos e lucro garantido.", social: "instagram"},
+                {name: "José Carlos", photo: "https://randomuser.me/api/portraits/men/22.jpg", state: "PR", text: "Atendo várias academias e o pack fitness foi um divisor de águas. Recomendo muito!", social: "facebook"},
+                {name: "Patrícia Oliveira", photo: "https://randomuser.me/api/portraits/women/55.jpg", state: "BA", text: "Os packs de nostalgia estão fazendo sucesso entre meus clientes. Conteúdo de qualidade e bem organizado!", social: "instagram"}
+            ]
+        };
+        
+        // Inicializar estrelas no fundo
+        function initStars() {
+            const starsContainer = document.getElementById('stars-container');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Tamanho aleatório
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Posição aleatória
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                // Atraso de animação aleatório
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Gerar notificações em tempo real
+        function generateNotification() {
+            const container = document.getElementById('notifications-container');
+            
+            // Limitar número de notificações visíveis
+            if (container.children.length >= 3) {
+                container.removeChild(container.firstChild);
+            }
+            
+            // Escolher aleatoriamente entre homem e mulher
+            const isMale = Math.random() > 0.5;
+            const names = isMale ? config.maleNames : config.femaleNames;
+            const photos = isMale ? config.malePhotos : config.femalePhotos;
+            
+            // Garantir que não repita nome e foto
+            const usedNames = Array.from(container.querySelectorAll('.notification-content h4')).map(el => el.textContent);
+            const availableNames = names.filter(name => !usedNames.includes(name));
+            const availablePhotos = photos.filter((_, index) => !usedNames.includes(names[index]));
+            
+            if (availableNames.length === 0 || availablePhotos.length === 0) return;
+            
+            const nameIndex = Math.floor(Math.random() * availableNames.length);
+            const name = availableNames[nameIndex];
+            const photo = availablePhotos[nameIndex] || photos[Math.floor(Math.random() * photos.length)];
+            const state = config.states[Math.floor(Math.random() * config.states.length)];
+            
+            // Criar notificação
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            notification.innerHTML = `
+                <div class="notification-avatar">
+                    <img src="${photo}" alt="${name}">
+                </div>
+                <div class="notification-content">
+                    <h4>${name}</h4>
+                    <p>Acabou de adquirir o pack Mundo Store!</p>
+                    <div class="notification-location">${state}</div>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Remover notificação após 8 segundos
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.opacity = '0';
+                    notification.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.parentNode.removeChild(notification);
+                        }
+                    }, 500);
+                }
+            }, 8000);
+        }
+        
+        // Gerar depoimentos
+        function generateDepoimentos() {
+            const container = document.getElementById('depoimentos-container');
+            
+            config.depoimentos.forEach(depoimento => {
+                const card = document.createElement('div');
+                card.className = 'depoimento-card';
+                
+                const socialBadge = depoimento.social === 'facebook' 
+                    ? '<div class="social-badge facebook-badge"><i class="fab fa-facebook"></i> Facebook</div>'
+                    : '<div class="social-badge instagram-badge"><i class="fab fa-instagram"></i> Instagram</div>';
+                
+                card.innerHTML = `
+                    <div class="depoimento-header">
+                        <div class="depoimento-avatar">
+                            <img src="${depoimento.photo}" alt="${depoimento.name}">
+                        </div>
+                        <div class="depoimento-info">
+                            <h4>${depoimento.name}</h4>
+                            <p>${depoimento.state}</p>
+                            ${socialBadge}
+                        </div>
+                    </div>
+                    <div class="depoimento-text">
+                        "${depoimento.text}"
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // Atualizar data atual
+        function updateDate() {
+            const now = new Date();
+            const options = { day: '2-digit', month: 'long', year: 'numeric' };
+            const formattedDate = now.toLocaleDateString('pt-BR', options);
+            
+            document.getElementById('current-date').textContent = formattedDate;
+            document.getElementById('current-year').textContent = now.getFullYear();
+        }
+        
+        // Rastrear clique no botão de compra com o Pixel
+        function setupPixelTracking() {
+            const buyButton = document.getElementById('buy-button');
+            
+            buyButton.addEventListener('click', function() {
+                fbq('track', 'Purchase', {
+                    value: 39.90,
+                    currency: 'BRL'
+                });
+            });
+        }
+        
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            initStars();
+            generateDepoimentos();
+            updateDate();
+            setupPixelTracking();
+            
+            // Iniciar notificações
+            generateNotification();
+            setInterval(generateNotification, 6000);
+            
+            // Adicionar efeito de clique nos botões
+            const buyButtons = document.querySelectorAll('.buy-btn');
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Efeito visual
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    // Rastreamento adicional
+                    fbq('track', 'InitiateCheckout');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
